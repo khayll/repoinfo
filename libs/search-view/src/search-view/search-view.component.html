@@ -1,0 +1,8 @@
+<mat-toolbar class="header">
+  <mat-icon>home</mat-icon>
+  <span>Repository Info</span>
+</mat-toolbar>
+<div class="content">
+  <ri-search-input [query]="query$ | async" [loading]="loading$ | async" (search)="search($event)"></ri-search-input>
+</div>
+<ri-result-list [repositories]="repositories$ | async"></ri-result-list>

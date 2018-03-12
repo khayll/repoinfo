@@ -1,0 +1,13 @@
+:host {
+  padding: 16px 24px 16px 24px;
+}
+
+
+mat-list {
+  &> mat-list-item {
+    &> img {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}

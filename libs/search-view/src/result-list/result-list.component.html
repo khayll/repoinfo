@@ -1,0 +1,8 @@
+<mat-list role="list">
+  <mat-list-item role="listitem" *ngFor="let repository of repositories">
+    <img mat-list-avatar [src]="repository.owner.avatar_url" [alt]="repository.owner.login">
+    <h4 mat-line>{{repository.owner.login}} / {{repository.name}}</h4>
+    <p mat-line> {{repository.updated_at | date}} </p>
+  </mat-list-item>
+</mat-list>
+
