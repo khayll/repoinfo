@@ -5,7 +5,7 @@ import { SearchInputComponent } from './search-input/search-input.component';
 import { ResultListComponent } from './result-list/result-list.component';
 import { SearchViewComponent } from './search-view/search-view.component';
 import {
-  MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule,
+  MatButtonModule, MatCardModule, MatDividerModule, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule,
   MatProgressSpinnerModule,
   MatToolbarModule
 } from "@angular/material";
@@ -33,6 +33,7 @@ export const searchViewRoutes: Route[] = [
     MatProgressSpinnerModule,
     MatListModule,
     MatCardModule,
+    MatDividerModule,
     RouterModule.forChild(searchViewRoutes)
   ],
   declarations: [SearchInputComponent, ResultListComponent, SearchViewComponent]

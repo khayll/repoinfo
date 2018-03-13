@@ -1,8 +1,25 @@
 <mat-list role="list">
-  <mat-list-item role="listitem" *ngFor="let repository of repositories">
-    <img mat-list-avatar [src]="repository.owner.avatar_url" [alt]="repository.owner.login">
-    <h4 mat-line>{{repository.owner.login}} / {{repository.name}}</h4>
-    <p mat-line> {{repository.updated_at | date}} </p>
-  </mat-list-item>
+  <ng-container *ngFor="let repository of repositories">
+    <mat-list-item role="listitem">
+      <img mat-list-avatar [src]="repository.owner.avatar_url" [alt]="repository.owner.login">
+      <h4 mat-line>
+        <a [href]="repository.owner.html_url">{{repository.owner.login}}</a> / <a [href]="repository.html_url">{{repository.name}}</a>
+      </h4>
+      <p mat-line>Last update: {{repository.updated_at | date}} </p>
+      <div class="stats">
+        <mat-icon>star</mat-icon>
+        <div class="stargazers">{{repository.stargazers_count}}</div>
+        <mat-icon>share</mat-icon>
+        <div class="forks">{{repository.forks_count}}</div>
+      </div>
+    </mat-list-item>
+    <mat-list-item role="listitem" class="description">
+      <p>{{repository.description}}</p>
+      <p></p>
+      <div>Open issues: {{repository.open_issues_count}}</div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </ng-container>
+
 </mat-list>
 

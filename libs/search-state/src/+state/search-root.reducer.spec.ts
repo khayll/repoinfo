@@ -10,7 +10,7 @@ describe('searchRootReducer', () => {
     const sampleItem: Repository = {
       id: 211,
       name: "test name",
-      htmlUrl: "https://some.url.com/repository",
+      html_url: "https://some.url.com/repository",
       owner: {
         id: 3213,
         login: "testlogin",

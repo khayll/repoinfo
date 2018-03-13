@@ -5,9 +5,33 @@
 
 mat-list {
   &> mat-list-item {
+    overflow-x: hidden;
+    &.description {
+      height: auto;
+    }
     &> img {
       width: 32px;
       height: 32px;
     }
   }
+  &> mat-divider {
+    margin: 16px;
+  }
+
 }
+
+.stats {
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-content: center;
+  align-items: center;
+
+  &> .stargazers, &> .forks {
+    padding-left: 8px;
+    width: 60px;
+  }
+}
+

@@ -3,7 +3,7 @@
 export interface Repository {
   id: number;
   name: string;
-  htmlUrl: string;
+  html_url: string;
   owner: User;
   description: string;
   stargazers_count: number;
