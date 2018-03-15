@@ -1,26 +1,18 @@
 :host {
-  padding: 16px 24px 16px 24px;
+  padding-left: auto;
+  padding-right: auto;
 }
-
 
 mat-list {
   &> mat-list-item {
     overflow-x: hidden;
-    &.description {
-      height: auto;
-    }
-    &> img {
-      width: 32px;
-      height: 32px;
-    }
   }
   &> mat-divider {
     margin: 16px;
   }
-
 }
 
-.stats {
+.stats, .issues {
   font-size: 14px;
   display: flex;
   flex-direction: row;
@@ -29,9 +21,17 @@ mat-list {
   align-content: center;
   align-items: center;
 
-  &> .stargazers, &> .forks {
+  &> .count {
     padding-left: 8px;
     width: 60px;
   }
 }
 
+.legend {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  padding: 16px;
+  color: darkgray;
+}

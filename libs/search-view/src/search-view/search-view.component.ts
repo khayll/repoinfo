@@ -16,11 +16,13 @@ export class SearchViewComponent implements OnInit {
   query$: Observable<string>;
   repositories$: Observable<Repository[]>;
   loading$: Observable<boolean>;
+  totalCount$: Observable<number>;
 
   constructor(private route: ActivatedRoute, private store: Store<SearchRootState>) {
     this.query$ = this.store.select( state => state.searchRoot.query);
     this.repositories$ = this.store.select( state => state.searchRoot.items);
     this.loading$ = this.store.select( state => state.searchRoot.loading);
+    this.totalCount$ = this.store.select( state => state.searchRoot.total_count);
   }
 
   ngOnInit() {

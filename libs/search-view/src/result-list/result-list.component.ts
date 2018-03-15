@@ -10,7 +10,10 @@ import {Repository} from "@repoinfo/data-model";
 })
 export class ResultListComponent implements OnInit {
 
-  @Input() repositories: Repository[];
+  @Input() repositories: Repository[] = [];
+  @Input() totalCount: number;
+  @Input() loading: boolean;
+  @Input() query: string;
 
   constructor() {
   }

@@ -33,8 +33,8 @@ describe('searchRootReducer', () => {
       updated_at: "2018-02-20T13:21:04Z",
       homepage: "https://some.homepage.com"
     };
-    const action: SearchDataLoaded = {type: 'SEARCH_DATA_LOADED', payload: {total_count: 12, incomplete_results: false, sampleItem}};
+    const action: SearchDataLoaded = {type: 'SEARCH_DATA_LOADED', payload: {total_count: 12, incomplete_results: false, items: [sampleItem]}};
     const actual = searchRootReducer(state, action);
-    expect(actual).toEqual({total_count: 12, incomplete_results: false, items: [sampleItem] });
+    expect(actual).toEqual({query: '', loading: false, total_count: 12, incomplete_results: false, items: [sampleItem] });
   });
 });

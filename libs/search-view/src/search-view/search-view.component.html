@@ -3,6 +3,6 @@
   <span>Repository Info</span>
 </mat-toolbar>
 <div class="content">
-  <ri-search-input [query]="query$ | async" [loading]="loading$ | async" (search)="search($event)"></ri-search-input>
+    <ri-search-input [query]="query$ | async" [loading]="loading$ | async" (search)="search($event)"></ri-search-input>
+    <ri-result-list [loading]="loading$ | async" [query]="query$ | async" [totalCount]="totalCount$ | async" [repositories]="repositories$ | async"></ri-result-list>
 </div>
-<ri-result-list [repositories]="repositories$ | async"></ri-result-list>

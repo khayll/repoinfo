@@ -1,3 +1,18 @@
+
+<div class="legend">
+  <div class="empty-search" *ngIf="repositories.length === 0 && !loading && query === ''">Start by typing a query in the input box above.</div>
+  <div class="loading" *ngIf="loading">Loading results...</div>
+  <div class="result-count" *ngIf="repositories.length > 0" class="empty-search">
+    <span *ngIf="!loading && totalCount > repositories.length">
+      Displaying first <i>{{repositories.length}}</i> results of <i>{{totalCount}}</i> for <i>{{query}}</i>
+    </span>
+    <span *ngIf="!loading && totalCount === repositories.length && repositories.length > 0">
+      Found <i>{{repositories.length}}</i> repositories for <i>{{query}}</i>
+    </span>
+  </div>
+  <div class="loading" *ngIf="!loading && query !== '' && repositories.length === 0">No repositories found by that name, try reformulating the query.</div>
+</div>
+
 <mat-list role="list">
   <ng-container *ngFor="let repository of repositories">
     <mat-list-item role="listitem">
@@ -8,18 +23,21 @@
       <p mat-line>Last update: {{repository.updated_at | date}} </p>
       <div class="stats">
         <mat-icon>star</mat-icon>
-        <div class="stargazers">{{repository.stargazers_count}}</div>
+        <div class="count">{{repository.stargazers_count}}</div>
         <mat-icon>share</mat-icon>
-        <div class="forks">{{repository.forks_count}}</div>
+        <div class="count">{{repository.forks_count}}</div>
       </div>
     </mat-list-item>
-    <mat-list-item role="listitem" class="description">
-      <p>{{repository.description}}</p>
-      <p></p>
-      <div>Open issues: {{repository.open_issues_count}}</div>
+    <mat-list-item role="listitem">
+      <p mat-line>
+        <span>{{repository.description}}</span>
+      </p>
+      <div class="issues">
+        <button mat-button *ngIf="repository.open_issues_count > 0" routerLink="issues/{{repository.id}}">View Issues</button>
+        <mat-icon>bug_report</mat-icon>
+        <div class="count">{{repository.open_issues_count}}</div>
+      </div>
     </mat-list-item>
     <mat-divider></mat-divider>
   </ng-container>
-
 </mat-list>
-

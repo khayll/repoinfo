@@ -6,7 +6,7 @@ import 'rxjs/add/operator/switchMap';
 import {SearchRootState} from './search-root.interfaces';
 import {SearchLoadData} from './search-root.actions';
 import {HttpClient} from "@angular/common/http";
-import {map, switchMap} from "rxjs/operators";
+import {map} from "rxjs/operators";
 import {empty} from "rxjs/observable/empty";
 
 @Injectable()
