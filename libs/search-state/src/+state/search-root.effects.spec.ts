@@ -8,7 +8,6 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import { HttpClient } from '@angular/common/http';
-import { delay } from 'rxjs/operators/delay';
 
 describe('SearchRootEffects', () => {
   let actions: Observable<any>;

@@ -18,6 +18,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { SearchStateModule } from '@repoinfo/search-state';
 import { NxModule } from '@nrwl/nx';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {HeaderModule} from "@repoinfo/header";
 
 describe('SearchViewComponent', () => {
   let component: SearchViewComponent;
@@ -39,7 +40,8 @@ describe('SearchViewComponent', () => {
           SearchStateModule,
           NxModule.forRoot(),
           MatInputModule,
-          NoopAnimationsModule
+          NoopAnimationsModule,
+          HeaderModule
         ],
         declarations: [SearchViewComponent, SearchInputComponent, ResultListComponent]
       }).compileComponents();

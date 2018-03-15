@@ -9,10 +9,10 @@ describe('issuesRootReducer', () => {
       loading: false,
       total_count: 0,
       incomplete_results: false,
-      issues: []
+      items: []
     };
     const action: IssuesDataLoaded = { type: 'ISSUES_DATA_LOADED', payload: {} };
     const actual = issuesRootReducer(state, action);
-    expect(actual).toEqual({});
+    expect(actual).toEqual(state);
   });
 });
