@@ -27,7 +27,7 @@ export class SearchInputComponent implements OnInit, OnDestroy {
     this.searchField = new FormControl();
     this.searchFieldSubscription = this.searchField.valueChanges
       .pipe(
-        debounceTime(500),
+        debounceTime(1000),
         distinctUntilChanged(),
         tap(query => {
           this.search.emit(query);

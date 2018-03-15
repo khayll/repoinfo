@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { tap } from 'rxjs/operators';
+import {ActivatedRoute, Router} from '@angular/router';
+import {switchMap, tap} from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { SearchRootState } from '@repoinfo/search-state';
 import { Observable } from 'rxjs/Observable';
@@ -17,22 +17,26 @@ export class SearchViewComponent implements OnInit {
   loading$: Observable<boolean>;
   totalCount$: Observable<number>;
 
-  constructor(private route: ActivatedRoute, private store: Store<SearchRootState>) {
-    this.query$ = this.store.select(state => state.searchRoot.query);
+  constructor(private router: Router, private route: ActivatedRoute, private store: Store<SearchRootState>) {
+    this.query$ = this.route.params.pipe(
+      tap(params => {
+        if ( this.router.url !== '/search' ) {
+          this.store.dispatch({ type: 'SEARCH_LOAD_DATA', payload: params['query'] });
+        } else {
+          this.store.dispatch({ type: 'SEARCH_CLEAR_DATA'});
+        }
+      }),
+      switchMap( () => this.store.select(state => state.searchRoot.query))
+    );
     this.repositories$ = this.store.select(state => state.searchRoot.items);
     this.loading$ = this.store.select(state => state.searchRoot.loading);
     this.totalCount$ = this.store.select(state => state.searchRoot.total_count);
   }
 
-  ngOnInit() {
-    this.route.params.pipe(
-      tap(params => {
-        this.store.dispatch({ type: 'SEARCH_LOAD_DATA', payload: params['query'] });
-      })
-    );
-  }
+  ngOnInit() { }
 
   search(query: string) {
-    this.store.dispatch({ type: 'SEARCH_LOAD_DATA', payload: query });
+    this.router.navigate(['search/' + encodeURIComponent(query)]);
+    //this.store.dispatch({ type: 'SEARCH_LOAD_DATA', payload: query });
   }
 }

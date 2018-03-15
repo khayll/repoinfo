@@ -28,6 +28,7 @@ I replaced Jasmine with Jest using the great [jest-preset-angular](https://githu
 
 ## Todo
 
+- improve unit tests
 - improve scss with mixins, maybe start using @angular/flex-layout
 - add visualisation library
 - test in other browsers (Chrome and Safari works) 
@@ -35,7 +36,6 @@ I replaced Jasmine with Jest using the great [jest-preset-angular](https://githu
 
 ## Known issues
 
-- search should save the query in the url as a parameter (to help reload, and enable deeplinking) 
-- npm test and ng test does two different things, since
-- description is truncated if too long, plus it could use more padding on the right
+- npm test and ng test does two different things, because the switch to jest
+-  description is truncated in search results if too long, plus it could use more padding on the right
 

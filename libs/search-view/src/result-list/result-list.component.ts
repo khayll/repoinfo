@@ -20,6 +20,6 @@ export class ResultListComponent implements OnInit {
   ngOnInit() {}
 
   issues(user: string, repo: string) {
-    this.router.navigate(['issues/' + user + '/' + repo]);
+    this.router.navigate(['issues/repo/' + user + '/' + repo]);
   }
 }

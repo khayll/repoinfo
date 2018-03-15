@@ -11,7 +11,7 @@ import {MarkdownModule} from "ngx-md";
 
 export const issuesViewRoutes: Route[] = [
   {
-    path: ':user/:repo',
+    path: 'repo/:user/:repo',
     component: IssuesViewComponent
   }
 ];
