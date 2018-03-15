@@ -5,12 +5,19 @@ import { SearchInputComponent } from './search-input/search-input.component';
 import { ResultListComponent } from './result-list/result-list.component';
 import { SearchViewComponent } from './search-view/search-view.component';
 import {
-  MatButtonModule, MatCardModule, MatDividerModule, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule,
+  MatButtonModule,
+  MatCardModule,
+  MatDividerModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
   MatProgressSpinnerModule,
   MatToolbarModule
-} from "@angular/material";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {SearchStateModule} from "@repoinfo/search-state";
+} from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SearchStateModule } from '@repoinfo/search-state';
+import {HeaderModule} from "@repoinfo/header";
 
 export const searchViewRoutes: Route[] = [
   {
@@ -34,9 +41,9 @@ export const searchViewRoutes: Route[] = [
     MatListModule,
     MatCardModule,
     MatDividerModule,
-    RouterModule.forChild(searchViewRoutes)
+    RouterModule.forChild(searchViewRoutes),
+    HeaderModule
   ],
   declarations: [SearchInputComponent, ResultListComponent, SearchViewComponent]
 })
-export class SearchViewModule {
-}
+export class SearchViewModule {}

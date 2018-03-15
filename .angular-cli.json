@@ -122,8 +122,32 @@
       }
     },
     {
+      "name": "common",
+      "root": "libs/common/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    },
+    {
       "name": "data-model",
       "root": "libs/data-model/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    },
+    {
+      "name": "header",
+      "root": "libs/header/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    },
+    {
+      "name": "issues-state",
+      "root": "libs/issues-state/src",
+      "test": "../../../test.js",
+      "appRoot": ""
+    },
+    {
+      "name": "issues-view",
+      "root": "libs/issues-view/src",
       "test": "../../../test.js",
       "appRoot": ""
     },

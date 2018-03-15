@@ -1,4 +1,4 @@
-import {Repository} from "@repoinfo/data-model";
+import { Repository } from '@repoinfo/data-model';
 
 export interface SearchRoot {
   query: string;

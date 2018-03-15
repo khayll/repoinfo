@@ -13,4 +13,3 @@ export interface SearchClearData {
 }
 
 export type SearchRootAction = SearchLoadData | SearchDataLoaded | SearchClearData;
-

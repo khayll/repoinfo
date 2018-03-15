@@ -1,4 +1,4 @@
-import {SearchRoot} from './search-root.interfaces';
+import { SearchRoot } from './search-root.interfaces';
 
 export const searchRootInitialState: SearchRoot = {
   query: '',

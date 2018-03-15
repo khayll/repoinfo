@@ -1,7 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Store} from "@ngrx/store";
-import {SearchRootState} from "@repoinfo/search-state";
-import {Repository} from "@repoinfo/data-model";
+import { Component, Input, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { SearchRootState } from '@repoinfo/search-state';
+import { Repository } from '@repoinfo/data-model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ri-result-list',
@@ -9,16 +10,16 @@ import {Repository} from "@repoinfo/data-model";
   styleUrls: ['./result-list.component.scss']
 })
 export class ResultListComponent implements OnInit {
-
   @Input() repositories: Repository[] = [];
   @Input() totalCount: number;
   @Input() loading: boolean;
   @Input() query: string;
 
-  constructor() {
-  }
+  constructor(private router: Router) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
+  issues(user: string, repo: string) {
+    this.router.navigate(['issues/' + user + '/' + repo]);
+  }
 }

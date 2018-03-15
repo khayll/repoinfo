@@ -1,31 +1,32 @@
-import {Injectable} from '@angular/core';
-import {Effect, Actions} from '@ngrx/effects';
-import {DataPersistence} from '@nrwl/nx';
-import {of} from 'rxjs/observable/of';
+import { Injectable } from '@angular/core';
+import { Effect, Actions } from '@ngrx/effects';
+import { DataPersistence } from '@nrwl/nx';
+import { of } from 'rxjs/observable/of';
 import 'rxjs/add/operator/switchMap';
-import {SearchRootState} from './search-root.interfaces';
-import {SearchLoadData} from './search-root.actions';
-import {HttpClient} from "@angular/common/http";
-import {map} from "rxjs/operators";
-import {empty} from "rxjs/observable/empty";
+import { SearchRootState } from './search-root.interfaces';
+import { SearchLoadData } from './search-root.actions';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { empty } from 'rxjs/observable/empty';
 
 @Injectable()
 export class SearchRootEffects {
-  @Effect() loadData = this.dataPersistence.fetch('SEARCH_LOAD_DATA', {
+  @Effect()
+  loadData = this.dataPersistence.fetch('SEARCH_LOAD_DATA', {
     run: (action: SearchLoadData, state: SearchRootState) => {
-      if(action.payload) {
+      if (action.payload) {
         return this.http.get('https://api.github.com/search/repositories?q=' + action.payload).pipe(
-          map( (response) => {
+          map(response => {
             return {
               type: 'SEARCH_DATA_LOADED',
-              payload: {...response, query: action.payload}
+              payload: { ...response, query: action.payload }
             };
           })
-        )
+        );
       } else {
         return {
           type: 'SEARCH_CLEAR_DATA'
-        }
+        };
       }
     },
 
@@ -34,5 +35,9 @@ export class SearchRootEffects {
     }
   });
 
-  constructor(private actions: Actions, private dataPersistence: DataPersistence<SearchRootState>, private http: HttpClient) {}
+  constructor(
+    private actions: Actions,
+    private dataPersistence: DataPersistence<SearchRootState>,
+    private http: HttpClient
+  ) {}
 }

@@ -72,6 +72,7 @@
       true,
       "attribute",
       "app",
+      "ri",
       "camelCase"
     ],
     "component-selector": [

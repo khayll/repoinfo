@@ -1,0 +1,10 @@
+<mat-card *ngFor="let issue of issues">
+  <mat-card-title>
+    {{issue.title}}
+  </mat-card-title>
+  <mat-card-content>
+    <markdown>
+      {{issue.body}}
+    </markdown>
+  </mat-card-content>
+</mat-card>

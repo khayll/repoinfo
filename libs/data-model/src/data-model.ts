@@ -1,5 +1,3 @@
-
-
 export interface Repository {
   id: number;
   name: string;
@@ -43,11 +41,11 @@ export interface Issue {
 }
 
 export enum IssueState {
-  OPEN = "open",
-  CLOSED = "closed"
+  OPEN = 'open',
+  CLOSED = 'closed'
 }
 
 export enum UserType {
-  ORGANIZATION = "Organization",
-  USER = "User"
+  ORGANIZATION = 'Organization',
+  USER = 'User'
 }

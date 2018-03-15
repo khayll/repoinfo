@@ -1,0 +1,10 @@
+<ri-header></ri-header>
+
+<div class="container">
+  <button mat-button (click)="back()">
+    <mat-icon>keyboard_arrow_left</mat-icon>
+    back
+  </button>
+
+  <ri-issues-list [issues]="issues$ | async" [loading]="loading$ | async" [totalCount]="totalCount$ | async"></ri-issues-list>
+</div>
