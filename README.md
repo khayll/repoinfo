@@ -1,4 +1,4 @@
-# Repoinfo
+# Repoinfo [![Build Status](https://travis-ci.org/khayll/repoinfo.svg?branch=master)](https://travis-ci.org/khayll/repoinfo)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) using [Nrwl Nx](https://nrwl.io/nx).
 
