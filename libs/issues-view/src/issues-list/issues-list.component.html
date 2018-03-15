@@ -1,9 +1,15 @@
-<mat-card *ngFor="let issue of issues">
-  <mat-card-title>
-    {{issue.title}}
-  </mat-card-title>
+<mat-card *ngFor="let issue of issues" class="issue-card">
+  <mat-card-header>
+    <img mat-card-avatar src="{{issue.user.avatar_url}}">
+    <mat-card-title>
+      {{issue.title}}
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{issue.user.login}}
+    </mat-card-subtitle>
+  </mat-card-header>
   <mat-card-content>
-    <markdown>
+    <markdown class="issue-body">
       {{issue.body}}
     </markdown>
   </mat-card-content>

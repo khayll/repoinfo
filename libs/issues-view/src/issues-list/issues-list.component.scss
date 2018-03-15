@@ -1,7 +1,14 @@
-pre, code {
-  overflow-x: scroll;
+
+.issue-body {
+  pre, code, p {
+    overflow-x: scroll;
+  }
 }
 
 mat-card {
-  padding-bottom: 16px;
+  margin-bottom: 16px;
+  mat-card-content {
+    overflow-x: scroll;
+  }
 }
+
